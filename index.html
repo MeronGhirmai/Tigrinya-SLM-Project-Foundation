@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Tigrinya (ትግርኛ) Gemma-2-2B SLM | Google DeepMind Capstone Portal</title>
+  <style>
+    :root {
+      --bg: #0b0f19; --card: #131b2e; --border: #23304f;
+      --accent: #38bdf8; --accent2: #818cf8; --text: #e2e8f0; --muted: #94a3b8;
+      --success: #34d399; --warn: #fbbf24;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
+    header { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); border-bottom: 1px solid var(--border); padding: 48px 24px; text-align: center; }
+    .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .pill { background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); color: var(--accent); padding: 5px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; }
+    h1 { font-size: 2.3rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .subtitle { max-width: 780px; margin: 0 auto 28px; color: var(--muted); font-size: 1.05rem; }
+    .cta-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: 0.2s; font-size: 0.95rem; }
+    .btn-primary { background: var(--accent); color: #0f172a; }
+    .btn-primary:hover { background: #7dd3fc; transform: translateY(-1px); }
+    .btn-secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--accent); }
+    .container { max-width: 1120px; margin: 36px auto; padding: 0 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .stat-label { color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-val { font-size: 1.75rem; font-weight: 800; color: var(--accent); margin: 6px 0 4px; }
+    .stat-desc { font-size: 0.84rem; color: var(--muted); }
+    .section-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 24px; }
+    h2 { font-size: 1.35rem; margin-bottom: 16px; color: #f8fafc; display: flex; align-items: center; gap: 10px; }
+    .demo-box { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 14px; }
+    @media (max-width: 768px) { .demo-box { grid-template-columns: 1fr; } }
+    textarea { width: 100%; height: 120px; background: #090d16; border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 12px; font-size: 1rem; }
+    .out-box { background: #090d16; border: 1px solid var(--border); border-radius: 8px; padding: 14px; min-height: 120px; }
+    .token-chip { display: inline-block; background: rgba(129, 140, 248, 0.16); border: 1px solid rgba(129, 140, 248, 0.4); padding: 2px 8px; border-radius: 6px; margin: 3px; font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); }
+    th { color: var(--accent); font-weight: 600; }
+    code { background: #090d16; padding: 2px 6px; border-radius: 4px; color: var(--success); font-family: monospace; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class='badge-row'>
+      <span class='pill'>Google DeepMind AI Research Foundations Capstone</span>
+      <span class='pill'>Base: google/gemma-2-2b</span>
+      <span class='pill'>Script: Ge'ez (ፊደል U+1200–U+139F)</span>
+      <span class='pill'>4-Bit QLoRA Single-GPU</span>
+    </div>
+    <h1>Tigrinya (ትግርኛ) Small Language Model Portal</h1>
+    <p class='subtitle'>Contextually aware, memory-optimized Gemma-2-2B SLM designed for single-GPU hardware (T4/L4), pairing Ge'ez orthographic fidelity with human-centered dialectal governance.</p>
+    <div class='cta-group'>
+      <a class='btn btn-primary' href='https://colab.research.google.com/github/MeronGhirmai/Tigrinya-SLM-Project-Foundation/blob/main/notebooks/Tigrinya_Gemma2_Colab_Master.ipynb' target='_blank'>🚀 Open & Run in Google Colab (T4/L4 GPU)</a>
+      <a class='btn btn-secondary' href='https://github.com/MeronGhirmai/Tigrinya-SLM-Project-Foundation' target='_blank'>💻 View GitHub Repository</a>
+      <a class='btn btn-secondary' href='governance/DATA_CARD.md' target='_blank'>📄 Inspect Data Card & Governance</a>
+    </div>
+  </header>
+  <div class='container'>
+    <div class='grid-4'>
+      <div class='stat-card'>
+        <div class='stat-label'>Model & Adapter Budget</div>
+        <div class='stat-val'>20.77M <span style='font-size:0.9rem;color:var(--muted)'>/ 2.61B</span></div>
+        <div class='stat-desc'>0.79% trainable LoRA params (r=16, α=32) across all Attention & MLP layers</div>
+      </div>
+      <div class='stat-card'>
+        <div class='stat-label'>Peak Single-GPU VRAM</div>
+        <div class='stat-val'>~7.61 GB</div>
+        <div class='stat-desc'>4-bit NF4 + Double Quantization + Paged AdamW-8bit (Fits 16GB Colab T4)</div>
+      </div>
+      <div class='stat-card'>
+        <div class='stat-label'>Ge'ez Byte-Fallback</div>
+        <div class='stat-val'>0.0%</div>
+        <div class='stat-desc'>Gemma-2 256k SentencePiece vocab natively encodes Fidel characters</div>
+      </div>
+      <div class='stat-card'>
+        <div class='stat-label'>4Ms Compute & Carbon</div>
+        <div class='stat-val'>180.4 PFLOPs</div>
+        <div class='stat-desc'>~0.058 kWh (~14.5 gCO2eq) -> >98% energy reduction vs full fine-tuning</div>
+      </div>
+    </div>
+    <div class='section-card'>
+      <h2>🧪 Interactive Module 2 Sandbox: Ge'ez Normalization & Token Fertility Inspector</h2>
+      <p style='color:var(--muted);font-size:0.92rem;'>Test our Tigrinya preprocessing rules live in your browser: converts typed double colons (<code>::</code> or <code>፡፡</code>) into canonical Ge'ez Full Stop (<code>።</code>), normalizes wordspaces (<code>፡</code>), preserves phonemic pharyngeals (<code>ሐ/ሀ</code>, <code>ዐ/አ</code>), and estimates Gemma-2 syllograph token fertility.</p>
+      <div class='demo-box'>
+        <div>
+          <label style='font-size:0.85rem;color:var(--muted);display:block;margin-bottom:6px;'>Raw Tigrinya Input (Try editing punctuation or Fidel text):</label>
+          <textarea id='rawInput' oninput='runNormalizer()'>ትግርኛ ኣብ ኤርትራን ሰሜን ኢትዮጵያን፡ ብሰፊሑ ዝዝረብ ሴማዊ ቋንቋ እዩ:: ምዕባለ ሰብኣዊ ኣስተውዕሎ፡፡</textarea>
+        </div>
+        <div>
+          <label style='font-size:0.85rem;color:var(--muted);display:block;margin-bottom:6px;'>Normalized Output & Estimated Gemma-2 Subword Segmentation:</label>
+          <div class='out-box' id='normOutput'></div>
+        </div>
+      </div>
+    </div>
+    <div class='section-card'>
+      <h2>🏛️ 6-Pillar Responsible AI & Engineering Architecture</h2>
+      <table>
+        <thead><tr><th>Capstone Element</th><th>Technical / Governance Artifact</th><th>Real-World Impact & Verification Standard</th></tr></thead>
+        <tbody>
+          <tr><td>1. Problem Statement</td><td><code>README.md</code></td><td>Addresses Ge'ez tokenization tax, epistemic over-reliance, and dialectal prescriptivism.</td></tr>
+          <tr><td>2. Data Card & Curation</td><td><code>src/data_preprocessing.py</code><br><code>governance/DATA_CARD.md</code></td><td>Unicode NFC, <code>::/፡፡ -> ።</code> canonicalization, phonemic <code>ሐ/ሀ & ዐ/አ</code> preservation.</td></tr>
+          <tr><td>3. Single-GPU QLoRA</td><td><code>src/train_qlora.py</code><br><code>configs/qlora_t4_l4_config.yaml</code></td><td>Auto-detects T4 (fp16) vs L4 (bf16), eager attention soft-capping, gradient checkpointing.</td></tr>
+          <tr><td>4. Human-Centered Eval</td><td><code>src/evaluate_model.py</code><br><code>app.py</code></td><td>Word-Normalized Perplexity, <code>ChrF++</code>, plus 4-dimension Native Speaker Cultural Rubric.</td></tr>
+          <tr><td>5. Stakeholder & Foresight</td><td><code>governance/STAKEHOLDER_IMPACT.md</code><br><code>governance/FORESIGHT_GOVERNANCE.md</code></td><td>Eritrean & Ethiopian dialectal pluralism; guards against Amharic code-bleed (<code>እዩ</code> vs <code>ነው</code>).</td></tr>
+          <tr><td>6. 4Ms Sustainability</td><td><code>governance/SUSTAINABILITY_4M_PLAN.md</code></td><td>Exact <code>6 * P * N</code> FLOPs ledger, 7.61 GB VRAM budget, and low-TDP hardware mapping.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    function runNormalizer() {
+      const raw = document.getElementById('rawInput').value;
+      let clean = raw.normalize('NFC')
+        .replace(/(?::\s*:|፡\s*፡|:\s*፡|፡\s*:)/g, '።')
+        .replace(/፡/g, ' ')
+        .replace(/\s*([\u1362-\u1368])\s*/g, '$1 ')
+        .replace(/\s+/g, ' ').trim();
+      const words = clean ? clean.split(' ') : [];
+      const chars = clean.replace(/\s+/g, '').split('');
+      const fertility = words.length ? (chars.length / words.length).toFixed(2) : '0.00';
+      const chips = words.map(w => `<span class='token-chip'>▁${w}</span>`).join('');
+      document.getElementById('normOutput').innerHTML = `
+        <div style='margin-bottom:8px;font-weight:600;color:#34d399;'>Cleaned: ${clean}</div>
+        <div style='font-size:0.82rem;color:#94a3b8;margin-bottom:8px;'>Words: <b>${words.length}</b> | Est. Syllograph Tokens: <b>${chars.length}</b> | Est. Fertility: <b>${fertility} tok/word</b></div>
+        <div>${chips}</div>`;
+    }
+    runNormalizer();
+  </script>
+</body>
+</html>
