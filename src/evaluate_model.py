@@ -42,7 +42,11 @@ def main():
             human_rows.append({'Sample_ID': idx + 1, 'Prompt_Tigrinya': rec['instruction'], 'Reference_Gold': rec['response'], 'Model_Prediction': pred})
 
     chrf = sacrebleu.corpus_chrf(hypotheses, [references], word_order=2).score
-    print(f'Token PPL: {math.exp(min(total_nll / max(total_tokens, 1), 20.0)):.3f} | ChrF++: {chrf:.2f}')
+    token_ppl = math.exp(min(total_nll / max(total_tokens, 1), 20.0))
+    print(f'Token PPL: {token_ppl:.3f} | ChrF++: {chrf:.2f}')
+    if os.path.isdir(args.adapter_dir):
+        with open(os.path.join(args.adapter_dir, 'eval_results.json'), 'w', encoding='utf-8') as f:
+            json.dump({'Token perplexity (test)': round(token_ppl, 3), 'ChrF++ (test)': round(chrf, 2), 'Test samples': len(records)}, f, indent=2)
     os.makedirs(os.path.dirname(args.output_eval_csv), exist_ok=True)
     pd.DataFrame(human_rows).to_csv(args.output_eval_csv, index=False, encoding='utf-8-sig')
 
