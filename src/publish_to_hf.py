@@ -9,8 +9,8 @@ Run this on the machine that trained the model (Colab / Kaggle), after
 Credentials
   Hugging Face : `huggingface-cli login`, `notebook_login()`, or `export HF_TOKEN=hf_...`
                  (the token needs WRITE permission)
-  Kaggle       : `export KAGGLE_USERNAME=... KAGGLE_KEY=...` or ~/.kaggle/kaggle.json
-                 (create an API token at https://www.kaggle.com/settings)
+  Kaggle       : `export KAGGLE_API_TOKEN=KGAT_...` or ~/.kaggle/access_token
+                 (create an API token at https://www.kaggle.com/settings; needs kagglehub>=1.0)
 
 Examples
   python3 src/publish_to_hf.py --hf_repo_id USER/gemma2-2b-tigrinya-qlora
